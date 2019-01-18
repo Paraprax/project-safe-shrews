@@ -1,0 +1,58 @@
+body{
+  background: #CCCC00;
+}
+ul{
+  list-style-type: none;
+}
+
+.devouredBurger{
+  border-radius: 5px;
+  background:red;
+  padding:5px;
+
+}
+.BurgerList{
+  float: left;
+  width: 48%;
+  text-align: center;
+  }
+.devoured{
+ float: left;
+  width: 48%;
+  text-align: center;
+ 
+}
+
+.burgerDiv{
+ clear: both;
+ margin: 30px auto;
+ width: 980px;
+ text-align: center;
+
+
+}
+.center{
+  width:980px;
+  margin: 30px auto;
+
+  
+}
+.center:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.header-body{
+  text-align: center;
+}
+li{
+  font-size: 33px;
+}
+p{
+  font-size: 25px;
+}
+#addBurger{
+  padding:10px;
+  border-radius: 5px;
+  margin: 10px;
+}
