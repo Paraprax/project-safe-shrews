@@ -3,13 +3,7 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Users.findAll({}).then(function(dbExamples) {
-      res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
-      });
-      console.log("works");
-    });
+    res.render("index", {});
   });
 
   // Load login page
@@ -17,6 +11,16 @@ module.exports = function(app) {
   app.get("/login", function(req, res) {
     db.Users.findAll({}).then(function(dbExamples) {
       res.render("login", {
+        msg: "Welcome!",
+        examples: dbExamples
+      });
+      console.log("works");
+    });
+  });
+
+  app.get("/signup", function(req, res) {
+    db.Users.findAll({}).then(function(dbExamples) {
+      res.render("signup", {
         msg: "Welcome!",
         examples: dbExamples
       });
