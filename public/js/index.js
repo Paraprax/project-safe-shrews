@@ -3,6 +3,7 @@ var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
+var $login = $("#login");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -26,6 +27,12 @@ var API = {
     return $.ajax({
       url: "api/examples/" + id,
       type: "DELETE"
+    });
+  },
+  login: function() {
+    return $.ajax({
+      url: "/login",
+      type: "GET"
     });
   }
 };
@@ -65,11 +72,11 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+    UserName: $exampleText.val().trim(),
+    Password: $exampleDescription.val().trim()
   };
 
-  if (!(example.text && example.description)) {
+  if (!(example.UserName && example.Password)) {
     alert("You must enter an example text and description!");
     return;
   }
@@ -82,6 +89,13 @@ var handleFormSubmit = function(event) {
   $exampleDescription.val("");
 };
 
+var loginSubmit = function(event) {
+  event.preventDefault();
+
+  API.login().then(function() {
+    console.log("works");
+  });
+};
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
 var handleDeleteBtnClick = function() {
@@ -97,3 +111,4 @@ var handleDeleteBtnClick = function() {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
+$login.on("click", loginSubmit);
