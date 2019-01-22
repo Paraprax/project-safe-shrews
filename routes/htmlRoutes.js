@@ -9,12 +9,8 @@ module.exports = function(app) {
   // Load login page
 
   app.get("/login", function(req, res) {
-    db.Users.findAll({}).then(function(dbExamples) {
-      res.render("login", {
-        msg: "Welcome!",
-        examples: dbExamples
-      });
-      console.log("works");
+    db.Users.findAll({}).then(function() {
+      res.render("login");
     });
   });
 

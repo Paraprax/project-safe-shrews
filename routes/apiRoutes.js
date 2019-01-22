@@ -21,4 +21,18 @@ module.exports = function(app) {
       res.json(dbLogin);
     });
   });
+  app.get("/api/all", function(req, res) {
+    db.Users.findAll({}).then(function(results) {
+      res.json(results);
+    });
+  });
+  app.get("/api/user/:login", function(req, res) {
+    db.Users.findAll({
+      where: {
+        userName: req.params.login
+      }
+    }).then(function(results) {
+      res.json(results);
+    });
+  });
 };
