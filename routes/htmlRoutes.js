@@ -33,6 +33,14 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/user/login/:login", function(req, res) {
+    db.Users.findOne({ where: { id: req.params.login } }).then(function(dbExamples) {
+      res.render("example", {
+        example: dbExamples
+      });
+    });
+  });
+
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");

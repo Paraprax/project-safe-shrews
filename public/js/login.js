@@ -48,8 +48,9 @@ var loginValidate = function (event) {
     }
 };
 
-function loggedIn(data){
-    console.log(data)
+function loggedIn(userID){
+    console.log(userID)
+    $.get("/api/user/login/" + userID)   
 }
 
 $loginSubmit.on("click", loginValidate);
