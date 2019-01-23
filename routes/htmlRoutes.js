@@ -24,18 +24,20 @@ module.exports = function(app) {
     });
   });
 
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Users.findOne({ where: { id: req.params.id } }).then(function(dbExamples) {
+  
+ 
+// loads user login page and grabs their data
+  app.get("/user/login/:login", function(req, res) {
+    db.tasks.findOne({ where: { userid: req.params.login } }).then(function(dbExamples) {
       res.render("example", {
         example: dbExamples
       });
     });
   });
-// loads user login page and grabs their data
-  app.get("/user/login/:login", function(req, res) {
+// loads user task page
+  app.get("/user/tasks/:login", function(req, res) {
     db.tasks.findOne({ where: { userid: req.params.login } }).then(function(dbExamples) {
-      res.render("example", {
+      res.render("task", {
         example: dbExamples
       });
     });
