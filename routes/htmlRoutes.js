@@ -32,9 +32,9 @@ module.exports = function(app) {
       });
     });
   });
-
+// loads user login page and grabs their data
   app.get("/user/login/:login", function(req, res) {
-    db.Users.findOne({ where: { id: req.params.login } }).then(function(dbExamples) {
+    db.tasks.findOne({ where: { userid: req.params.login } }).then(function(dbExamples) {
       res.render("example", {
         example: dbExamples
       });

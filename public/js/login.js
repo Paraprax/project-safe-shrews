@@ -50,7 +50,7 @@ var loginValidate = function (event) {
 
 function loggedIn(userID){
     console.log(userID)
-    $.get("/api/user/login/" + userID)   
+    window.location.href="/user/login/" + userID;  
 }
 
 $loginSubmit.on("click", loginValidate);
