@@ -1,9 +1,15 @@
 var db = require("../models");
+var express = require("express");
+
+app.use(express.static("public"));
 
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    res.render("index", {});
+    res.render("index", {
+      title: "lalal",
+      body: "<p>test </p>"
+    });
   });
 
   // Load login page
