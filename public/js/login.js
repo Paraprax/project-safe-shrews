@@ -49,7 +49,6 @@ var loginValidate = function (event) {
 };
 
 function loggedIn(userID){
-    console.log(userID)
     window.location.href="/user/login/" + userID;  
 }
 

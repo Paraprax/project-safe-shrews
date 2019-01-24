@@ -34,12 +34,34 @@ module.exports = function (app) {
     }).then(function (results) {
       res.json(results);
     });
-
-    // creates a task in the task task table
   });
+  // tasks display
+  app.get("/api/profile/:user", function (req, res) {
+    db.tasks.findAll({
+      where: {
+        userName: req.params.user
+      }
+    }).then(function (results) {
+      res.json(results);
+    });
+  });
+
+
+  // creates a task in the task table
   app.post("/api/tasks", function (req, res) {
     db.tasks.create(req.body).then(function (dbTasks) {
       res.json(dbTasks);
     });
+  });
+
+  //create a update to task table 
+  app.put("/api/tasks/", function (req, res) {
+    console.log(req.body)
+    db.tasks.update(
+      { completed: req.body.completed },
+      { where: { id: req.body.id } }
+    ).then(function (dbUpdate) {
+      res.json(dbUpdate);
+    })
   });
 };

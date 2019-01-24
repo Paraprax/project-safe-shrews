@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+            <div class="card mt-4">
+              {{#each profile}}
+                <div class="card-body">
+                    <h5 class="card-title">Example</h5>
+                    <p id="{{this.task}}" data-task="{{this.task}}">
+                        <strong>task</strong>: {{this.task}}</p>
+                    <p>
+                        <p  data-task="{{this.target}}">
+                            <strong>target</strong>: {{this.target}}{{this.unit}}</p>
+                        <p>
+                            <strong>completed</strong> {{this.completed}}</p>
+                            <input id="{{this.id}}"><button class="update" id="submit-{{this.task}}" data-id="{{this.id}}">update</button>
+                </div>
+                 {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/user-profile.js"></script>

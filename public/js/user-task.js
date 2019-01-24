@@ -1,16 +1,11 @@
 
+ var $userID = $("#userId").data("id");
 
-var $taskName = $("#task-name").val();
-var $measurement = $("#measurement").val();
-var $goal = $("#goal").val();
-var $userID = $("#userId").data("id");
 var $submit = $('#submit');
 
-console.log($userID)
-console.log($taskName)
 
 var API = {
-    newTask: function(data) {
+    newTask: function (data) {
         return $.ajax({
             headers: {
                 "Content-Type": "application/json"
@@ -32,6 +27,11 @@ var API = {
 
 var taskFormSubmit = function (event) {
     event.preventDefault();
+    var $taskName = $("#task-name").val();
+    var $measurement = $("#measurement").val();
+    var $goal = $("#goal").val();
+   
+    
     var tasks = {
         userid: $userID,
         task: $taskName,
