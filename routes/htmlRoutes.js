@@ -1,7 +1,7 @@
 var db = require("../models");
 var express = require("express");
 
-app.use(express.static("public"));
+//app.use(express.static("public"));
 
 module.exports = function(app) {
   // Load index page
