@@ -29,10 +29,7 @@ document.addEventListener("DOMContentLoaded", function(event) { //non-jQuery equ
         },
         options: {
             responsive: true,
-            maintainAspectRatio: false,
-            animation: {
-                 animateScale: true
-             },
+            maintainAspectRatio: true,
              rotation: Math.PI * -0.5 //default; starting at the beginning of the first section in the array(eg. food prep)
 
         }
