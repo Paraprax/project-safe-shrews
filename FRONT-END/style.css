@@ -1,0 +1,25 @@
+.container{
+    background-color: rgb(39,170,225);
+    color: white;
+}
+
+.welcome{
+
+    /*font-family: 'Oswald', sans-serif;*/
+    font-family: 'Lobster', cursive;
+    color: black;
+    size: 24px;
+}
+
+h1{
+    color: white;
+    text-align: center;
+}
+
+body{
+    background-color: rgb(39,170,225);
+}
+
+img{
+
+}
