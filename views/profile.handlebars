@@ -1,6 +1,7 @@
 <div class="container-fluid" style="background-color: rgb(39,170,225); color:white; font-family:'Oswald', sans-serif;">
     <div class="jumbotron" style="background-color: rgb(39,170,225);">
-        <h1>WELCOME TO GOALDEN</h1>
+        <h1 data-id="{{user}}">WELCOME TO GOALDEN</h1>
+        <button class="btn btn-primary">Add task</button>
         <br>
         <div class="row">
 
@@ -10,7 +11,6 @@
                 <table style="border:black solid">
                     {{#each profile}}
                     <tr>
-
                         <td>
                             <span id="{{this.task}}" data-task="{{this.task}}">
                                 <strong>task</strong>: {{this.task}}</span>

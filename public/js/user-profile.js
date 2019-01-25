@@ -1,5 +1,5 @@
 
- var $userID = $("#userId").data("id");
+
 
 var $updateButton = $('.update');
 
@@ -35,5 +35,6 @@ var update = function(){
     });
 };
 
+console.log(window.location.href)
 
 $updateButton.on("click", update); 

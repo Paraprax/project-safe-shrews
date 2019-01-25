@@ -45,11 +45,11 @@ module.exports = function (app) {
   //route for users current tasks and update tasks
   app.get("/user/profile/:login", function (req, res) {
     db.tasks.findAll({ where: { userid: req.params.login } }).then(function (dbProfile) {
+      console.log(dbProfile[0].userid)
       res.render("profile", {
-        profile: dbProfile
-       
+        profile: dbProfile,
+        user: dbProfile[0].userid
       });
-      console.log(dbProfile)
     });
   });
 
