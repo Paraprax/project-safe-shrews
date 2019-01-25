@@ -1,28 +1,40 @@
-<div class="container">
-  <div class="row">
-    <div class="col-8 offset-2">
-      <div class="card mt-4">
-        <div class="card-body">
-          <h2 id="userId" data-id="{{example.userid}}">What tasks would you like to do</h2>
-          <form class="clearfix mb-4" action="POST">
-            <div class="form-group">
-              <label>Task</label>
-              <input type="text" id="task-name" class="form-control">
+
+<div class="container-fluid" style="background-color: rgb(39,170,225); color:white; font-family:'Oswald', sans-serif;">
+  <div class="jumbotron" style="background-color: rgb(39,170,225);">
+    <h1>WELCOME TO GOALDEN</h1>
+    <br>
+    
+    <!-- container-->
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-8 offset-2">
+          <h2 id="userId" data-id="{{user}}">What tasks would you like to add</h2>
+          <div class="mt-4">
+            <div class="card-body">
+              <br />
+              <a class="btn btn-primary" href="/user/profile/{{user}}">Back to Profile</a>
+              <form class="clearfix mb-4" name="addTask" action="POST">
+                <div class="form-group">
+                  <label>Task</label>
+                  <textarea type="text" id="task-name" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                  <label>unit of measurement</label>
+                  <input type="text" class="update-form" id="measurement">
+                </div>
+                <div class="form-group">
+                  <label>Target goal</label>
+                  <input type="text" class="update-form" id="goal">
+                </div>
+                <button id="submit" class="btn btn-primary float-right">Submit</button>
+              </form>
             </div>
-            <div class="form-group">
-              <label>unit of measurement</label>
-              <textarea class="form-control" id="measurement"></textarea>
-            </div>
-            <div class="form-group">
-              <label>Target goal</label>
-              <textarea class="form-control" id="goal"></textarea>
-            </div>
-            <button id="submit" class="btn btn-primary float-right">Submit</button>
-          </form>
+          </div>
         </div>
+        <!--end of container-->
       </div>
     </div>
-  </div>
-</div>
-<script src="/js/user-task.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="/js/user-task.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
