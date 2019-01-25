@@ -1,54 +1,60 @@
 var db = require("../models");
-var express = require("express");
 
-//app.use(express.static("public"));
-
-module.exports = function(app) {
+module.exports = function (app) {
   // Load index page
-  app.get("/", function(req, res) {
-    res.render("index", {
-      title: "lalal",
-      body: "<p>test </p>"
-    });
+  app.get("/", function (req, res) {
+    res.render("index", {});
   });
 
   // Load login page
 
-  app.get("/login", function(req, res) {
-    db.Users.findAll({}).then(function() {
+  app.get("/login", function (req, res) {
+    db.Users.findAll({}).then(function () {
       res.render("login");
     });
   });
 
-  app.get("/signup", function(req, res) {
-    db.Users.findAll({}).then(function(dbExamples) {
+  app.get("/signup", function (req, res) {
+    db.Users.findAll({}).then(function (dbExamples) {
       res.render("signup", {
         msg: "Welcome!",
         examples: dbExamples
       });
-      console.log("works");
     });
   });
 
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Users.findOne({ where: { id: req.params.id } }).then(function(dbExamples) {
+
+
+  // loads user login page and grabs their data
+  app.get("/user/login/:login", function (req, res) {
+    db.tasks.findOne({ where: { userid: req.params.login } }).then(function (dbExamples) {
       res.render("example", {
         example: dbExamples
       });
     });
   });
-
-  app.get("/user/login/:login", function(req, res) {
-    db.Users.findOne({ where: { id: req.params.login } }).then(function(dbExamples) {
-      res.render("example", {
+  //route for creating new tasks for user
+  app.get("/user/tasks/:userid", function (req, res) {
+    db.tasks.findOne({ where: { userid: req.params.userid } }).then(function (dbExamples) {
+      res.render("task", {
         example: dbExamples
       });
+    });
+  });
+
+  //route for users current tasks and update tasks
+  app.get("/user/profile/:login", function (req, res) {
+    db.tasks.findAll({ where: { userid: req.params.login } }).then(function (dbProfile) {
+      res.render("profile", {
+        profile: dbProfile
+       
+      });
+      console.log(dbProfile)
     });
   });
 
   // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
+  app.get("*", function (req, res) {
     res.render("404");
   });
 };
