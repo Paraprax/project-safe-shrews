@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function(event) { //non-jQuery equ
 
     var chart = document.getElementById("wheelChart");
     console.log(chart);
-    let pieChart = new Chart(chart, {
+    var pieChart = new Chart(chart, {
         type: 'doughnut',
         data: {
             labels: ["Food Prep", "Hydration", "Exercise", "Media", "Work", "Studying", "Commute", "Incomplete"],
