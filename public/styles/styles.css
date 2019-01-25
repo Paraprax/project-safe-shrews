@@ -4,4 +4,15 @@
 
 body{
   background-color: rgb(39,170,225);
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  color: white;
+  font-size: 40px;
+}
+
+.welcome{
+
+  font-family: 'Oswald', sans-serif;
+  color: white;
+  size: 40px;
 }
