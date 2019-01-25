@@ -1,41 +1,49 @@
+<script src="https://cdn.anychart.com/js/8.0.1/anychart-core.min.js"></script>
+<script src="https://cdn.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
 <div class="container-fluid" style="background-color: rgb(39,170,225); color:white; font-family:'Oswald', sans-serif;">
     <div class="jumbotron" style="background-color: rgb(39,170,225);">
-        <h1>WELCOME TO GOALDEN</h1>
+        <h1 data-id="{{user}}">WELCOME TO GOALDEN</h1>
         <br>
-        <div class="row">
+        <!-- container-->
+        <div class="container">
+            <div class="row">
+                <div class="col-8 offset-2">
+                    <div class="mt-4">
+                        <div class="card-body">
+                            <br />
+                            <a class="btn btn-primary" href="/user/tasks/{{user}}">add task</a>
 
-            <div class="col-sm-12">
-                <img class="logo" src="images/goalden.png" width="400px" alt="logo">
-                <p></p><br>
-                <table style="border:black solid">
-                    {{#each profile}}
-                    <tr>
+                            <table style="margin:0 auto;">
+                                {{#each profile}}
+                                <tr>
 
-                        <td>
-                            <span id="{{this.task}}" data-task="{{this.task}}">
-                                <strong>task</strong>: {{this.task}}</span>
+                                    <td>
+                                        <span id="{{this.task}}" data-task="{{this.task}}">
+                                            <strong>task</strong>: {{this.task}}</span>
 
-                        </td>
-                        <td style="text-align:right">
-                            <span data-task="{{this.target}}">
-                                <strong>target</strong>: {{this.target}}{{this.unit}}</span>
-                            <span>
-                                <strong>completed</strong> {{this.completed}}</span>
-                            <input class="complete update" id="{{this.id}}"><button class="update" id="submit-{{this.task}}"
-                                data-id="{{this.id}}">update</button>
+                                    </td>
+                                    <td style="text-align:right">
+                                        <span data-task="{{this.target}}">
+                                            <strong>target</strong>: {{this.target}}{{this.unit}}</span>
+                                        <span>
+                                            <strong>completed</strong> {{this.completed}}</span>
+                                        <input class="completeUpdate" id="{{this.id}}"><button class="update btn btn-secondary"
+                                            id="submit-{{this.task}}" data-id="{{this.id}}">update</button>
 
-                        </td>
-                    </tr>
+                                    </td>
+                                </tr>
 
 
-                    {{/each}}
-                </table>
+                                {{/each}}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!--end of container-->
             </div>
         </div>
-    </div>
-
-    
 
 
 
-    <script src="/js/user-profile.js"></script>
+       
+        <script src="/js/user-profile.js"></script>
