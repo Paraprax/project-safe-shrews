@@ -44,12 +44,21 @@ module.exports = function (app) {
 
   //route for users current tasks and update tasks
   app.get("/user/profile/:login", function (req, res) {
-    db.tasks.findAll({ where: { userid: req.params.login } }).then(function (dbProfile) {
-      res.render("profile", {
-        profile: dbProfile
-       
+    // create a dummy task for testing
+    db.tasks.create({
+      userid: 1,
+      task: "hydrate",
+      unit: "litres",
+      target: 3,
+      completed: 2
+    }).then(function() {
+      db.tasks.findAll({ where: { userid: req.params.login } }).then(function (dbProfile) {
+        res.render("profile", {
+          profile: dbProfile
+         
+        });
+        console.log(dbProfile);
       });
-      console.log(dbProfile)
     });
   });
 
