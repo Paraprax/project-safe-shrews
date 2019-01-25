@@ -39,6 +39,6 @@ var update = function(){
     });
 };
 
-console.log(window.location.href)
+
 
 $updateButton.on("click", update); 
