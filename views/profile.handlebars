@@ -1,25 +1,41 @@
-<div class="container">
-    <div class="row">
-        <div class="col-8 offset-2">
-            <div class="card mt-4">
-              {{#each profile}}
-                <div class="card-body">
-                    <h5 class="card-title">Example</h5>
-                    <p id="{{this.task}}" data-task="{{this.task}}">
-                        <strong>task</strong>: {{this.task}}</p>
-                    <p>
-                        <p  data-task="{{this.target}}">
-                            <strong>target</strong>: {{this.target}}{{this.unit}}</p>
-                        <p>
-                            <strong>completed</strong> {{this.completed}}</p>
-                            <input id="{{this.id}}"><button class="update" id="submit-{{this.task}}" data-id="{{this.id}}">update</button>
-                </div>
-                 {{/each}}
+<div class="container-fluid" style="background-color: rgb(39,170,225); color:white; font-family:'Oswald', sans-serif;">
+    <div class="jumbotron" style="background-color: rgb(39,170,225);">
+        <h1>WELCOME TO GOALDEN</h1>
+        <br>
+        <div class="row">
+
+            <div class="col-sm-12">
+                <img class="logo" src="images/goalden.png" width="400px" alt="logo">
+                <p></p><br>
+                <table style="border:black solid">
+                    {{#each profile}}
+                    <tr>
+
+                        <td>
+                            <span id="{{this.task}}" data-task="{{this.task}}">
+                                <strong>task</strong>: {{this.task}}</span>
+
+                        </td>
+                        <td style="text-align:right">
+                            <span data-task="{{this.target}}">
+                                <strong>target</strong>: {{this.target}}{{this.unit}}</span>
+                            <span>
+                                <strong>completed</strong> {{this.completed}}</span>
+                            <input class="complete update" id="{{this.id}}"><button class="update" id="submit-{{this.task}}"
+                                data-id="{{this.id}}">update</button>
+
+                        </td>
+                    </tr>
+
+
+                    {{/each}}
+                </table>
             </div>
         </div>
     </div>
-</div>
+
+    
 
 
 
-<script src="/js/user-profile.js"></script>
+    <script src="/js/user-profile.js"></script>

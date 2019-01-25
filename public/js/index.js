@@ -70,7 +70,7 @@ var handleFormSubmit = function(event) {
   };
 
   if (!(example.UserName && example.Password)) {
-    alert("You must enter an example text and description!");
+    alert("You must enter Username and password!");
     return;
   }
 

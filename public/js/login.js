@@ -49,7 +49,7 @@ var loginValidate = function (event) {
 };
 
 function loggedIn(userID){
-    window.location.href="/user/login/" + userID;  
+    window.location.href="/user/profile/" + userID;  
 }
 
 $loginSubmit.on("click", loginValidate);
