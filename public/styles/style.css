@@ -1,0 +1,49 @@
+body{
+    background-color: rgb(39,170,225);
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    font-size: 40px;
+}
+
+canvas {
+    width:500px !important;
+    height:500px !important;
+  }
+
+.container{
+    background-color: rgb(39,170,225);
+    color: white;
+}
+
+.list-group-item {
+    line-height: 2.5;
+}
+
+
+
+h1{
+    color: white;
+    text-align: center;
+}
+
+
+
+.user-profile{
+    width:700px;
+   margin: 0 auto;
+}
+.user-tasks{
+    float: left;
+}
+.updateTask{
+    float: left;
+}
+
+.welcome{
+
+    /*font-family: 'Oswald', sans-serif;*/
+    font-family: 'Lobster', cursive;
+    color: black;
+    size: 24px;
+}
