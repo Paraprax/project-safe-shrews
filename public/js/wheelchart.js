@@ -2,6 +2,15 @@ document.addEventListener("DOMContentLoaded", function(event) { //non-jQuery equ
 
     console.log( "ready!" );
 
+    var foodHours = 1;
+    var hydrHours = 0.5;
+    var exerHours = 1;
+    var mediaHours = 1;
+    var workHours = 3;
+    var studyHours = 2.5;
+    var comutHours = 1;
+    var incompHours = 2; 
+
     var chart = document.getElementById("wheelChart");
     console.log(chart);
     let pieChart = new Chart(chart, {
@@ -10,21 +19,28 @@ document.addEventListener("DOMContentLoaded", function(event) { //non-jQuery equ
             labels: ["Food Prep", "Hydration", "Exercise", "Media", "Work", "Studying", "Commute", "Incomplete"],
             datasets: [{
                 label: '# of Votes',
-                data: [1, 0.5, 1, 1, 3, 2.5, 1, 2],
+                data: [foodHours, hydrHours, exerHours, mediaHours, workHours, studyHours, comutHours, incompHours],
                 backgroundColor: [
                     '#DF7000', //food
-                    '#00ABDF', //hydration
+                    '#42EBF4', //hydration
                     '#D50000', //exercise
                     '#7200CA', //media
                     '#E8E000', //work
                     '#36CA00', //study
-                    '#354A84', //commute
-                    '#FFFFFF', //incomplete
+                    '#AAAAAA', //commute
+                    'rgba(0, 0, 0, 0)', //incomplete(transparent)
                 ],
                 borderColor: [
-                    'white'
+                    'black',
+                    'black',
+                    'black',
+                    'black',
+                    'black',
+                    'black',
+                    'black',
+                    'rgba(0, 0, 0, 0)',
                 ],
-                borderWidth: 2
+                borderWidth: 18
             }]
         },
         options: {
