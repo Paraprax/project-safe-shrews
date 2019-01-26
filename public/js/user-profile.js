@@ -1,5 +1,5 @@
 
- var $userID = $("#userId").data("id");
+
 
 var $updateButton = $('.update');
 
@@ -25,15 +25,20 @@ var API = {
 
 var update = function(){
     $taskID = $(this).data("id");
+    $taskValue = $(this).val();
+    console.log($taskValue)
     $taskUpdate = parseInt($('#' + $taskID).val());
     var updateData = {
         id: $taskID,
         completed: $taskUpdate
     }
+    $('#' + $taskID).val('')
     API.updateTask(updateData).then(function() {
         location.reload(); 
+        
     });
 };
+
 
 
 $updateButton.on("click", update); 

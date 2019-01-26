@@ -35,29 +35,20 @@ module.exports = function (app) {
   });
   //route for creating new tasks for user
   app.get("/user/tasks/:userid", function (req, res) {
-    db.tasks.findOne({ where: { userid: req.params.userid } }).then(function (dbExamples) {
+    db.tasks.findAll({ where: { userid: req.params.userid } }).then(function (dbExamples) {
       res.render("task", {
-        example: dbExamples
+        user: dbExamples[0].userid
       });
     });
   });
 
   //route for users current tasks and update tasks
   app.get("/user/profile/:login", function (req, res) {
-    // create a dummy task for testing
-    db.tasks.create({
-      userid: 1,
-      task: "hydrate",
-      unit: "litres",
-      target: 3,
-      completed: 2
-    }).then(function() {
-      db.tasks.findAll({ where: { userid: req.params.login } }).then(function (dbProfile) {
-        res.render("profile", {
-          profile: dbProfile
-         
-        });
-        console.log(dbProfile);
+    db.tasks.findAll({ where: { userid: req.params.login } }).then(function (dbProfile) {
+      console.log(dbProfile)
+      res.render("profile", {
+        profile: dbProfile,
+        user: dbProfile[0].userid
       });
     });
   });

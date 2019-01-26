@@ -31,16 +31,16 @@ document.addEventListener("DOMContentLoaded", function(event) { //non-jQuery equ
                     'rgba(0, 0, 0, 0)', //incomplete(transparent)
                 ],
                 borderColor: [
-                    'black',
-                    'black',
-                    'black',
-                    'black',
-                    'black',
-                    'black',
-                    'black',
+                    'white',
+                    'white',
+                    'white',
+                    'white',
+                    'white',
+                    'white',
+                    'white',
                     'rgba(0, 0, 0, 0)',
                 ],
-                borderWidth: 18
+                borderWidth: 6
             }]
         },
         options: {

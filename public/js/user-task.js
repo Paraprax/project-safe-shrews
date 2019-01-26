@@ -1,5 +1,5 @@
 
- var $userID = $("#userId").data("id");
+var $userID = $("#userId").data("id");
 
 var $submit = $('#submit');
 
@@ -30,8 +30,8 @@ var taskFormSubmit = function (event) {
     var $taskName = $("#task-name").val();
     var $measurement = $("#measurement").val();
     var $goal = $("#goal").val();
-   
-    
+
+
     var tasks = {
         userid: $userID,
         task: $taskName,
@@ -42,7 +42,10 @@ var taskFormSubmit = function (event) {
     console.log(JSON.stringify(tasks))
 
     API.newTask(tasks).then(function () {
-        alert("worked");
+        $("#task-name").val('')
+        $("#measurement").val('')
+        $("#goal").val('')
+        alert('Successfully added, add another?')
     });
 };
 
