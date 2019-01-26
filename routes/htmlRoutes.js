@@ -7,7 +7,6 @@ module.exports = function(app) {
   });
 
   // Load login page
-
   app.get("/login", function(req, res) {
     db.Users.findAll({}).then(function() {
       res.render("login");
@@ -58,6 +57,7 @@ module.exports = function(app) {
           });
           res.render("profile", {
             tasks: tasks,
+            encodedJSONTasks : encodeURIComponent(JSON.stringify(tasks)),
             user: req.params.userId
           });
         } else {
@@ -68,6 +68,9 @@ module.exports = function(app) {
       });
   });
 
+  app.get("/doughnut", function(req, res) {
+    res.render("doughnut");
+  });
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
