@@ -17,8 +17,8 @@ var config = {
     ],
     datasets: [{
       label: 'Percent Complete',
-      borderColor: window.chartColors.black,
-      backgroundColor: color(window.chartColors.grey).alpha(0.2).rgbString(),
+      borderColor: window.chartColors.white,
+      backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
       pointBackgroundColor: window.chartColors.yellow,
       data: [
         // randomScalingFactor(),
@@ -43,7 +43,21 @@ var config = {
     },
     scale: {
       ticks: {
-        beginAtZero: true
+        beginAtZero: true,
+        min: 0,
+        max: 100,
+        stepSize: 20,
+      },
+      gridLines: {
+        color: "black",
+        lineWidth: 1
+      },
+      angleLines: {
+        display: false
+      },
+      pointLabels: {
+        fontSize: 12,
+        fontColor: "black"
       }
     }
   }
