@@ -46,7 +46,10 @@ module.exports = function(app) {
       .findAll({
         where: {
           userid: req.params.userId
-        }
+        },
+        order: [
+            ['id', 'ASC'],
+        ],
       })
       .then(function(tasks) {
         console.log(`Tasks size: ${tasks.length}`);
