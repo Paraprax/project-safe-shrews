@@ -56,7 +56,7 @@ var config = {
         display: false
       },
       pointLabels: {
-        fontSize: 12,
+        fontSize: 20,
         fontColor: "black"
       }
     }
