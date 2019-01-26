@@ -17,6 +17,7 @@ var API = {
     });
   }
 };
+
 // checks the database for the username
 var loginCheck = function() {
   let usernameVar = $userName.val().trim();

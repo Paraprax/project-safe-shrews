@@ -33,30 +33,29 @@ module.exports = function(app) {
         });
       });
   });
+  
   //route for creating new tasks for user
   app.get("/user/tasks/:userid", function(req, res) {
-    db.tasks
-      .findAll({ where: { userid: req.params.userid } })
-      .then(function(dbExamples) {
-        res.render("task", {
-          user: dbExamples[0].userid
-        });
-      });
+    res.render("task", {
+      user: req.params.userid
+    });
   });
 
   //route for users current tasks and update tasks
   app.get("/user/profile/:userId", function(req, res) {
     db.tasks
       .findAll({ where: { userid: req.params.userId } })
-      .then(function(dbProfile) {
-        console.log(dbProfile);
-        if(dbProfile.size > 0) {
+      .then(function(tasks) {
+        console.log(tasks);
+        if(tasks.size > 0) {
           res.render("profile", {
-            profile: dbProfile,
-            user: dbProfile[0].userid
+            tasks: tasks,
+            user: req.params.userId
           });
         } else {
-          res.render("profile", {});
+          res.render("profile", {
+            user: req.params.userId
+          });
         }
       });
   });

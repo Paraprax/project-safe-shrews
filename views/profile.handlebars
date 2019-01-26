@@ -12,28 +12,25 @@
                         <div class="card-body">
                             <br />
                             <a class="btn btn-primary" href="/user/tasks/{{user}}">add task</a>
-
                             <table style="margin:0 auto;">
-                                {{#each profile}}
+                                {{#each tasks}}
                                 <tr>
-
                                     <td>
                                         <span id="{{this.task}}" data-task="{{this.task}}">
-                                            <strong>task</strong>: {{this.task}}</span>
-
+                                            <strong>task</strong>: {{this.task}}
+                                        </span>
                                     </td>
                                     <td style="text-align:right">
                                         <span data-task="{{this.target}}">
-                                            <strong>target</strong>: {{this.target}}{{this.unit}}</span>
+                                            <strong>target</strong>: {{this.target}}{{this.unit}}
+                                        </span>
                                         <span>
-                                            <strong>completed</strong> {{this.completed}}</span>
-                                        <input class="completeUpdate" id="{{this.id}}"><button class="update btn btn-secondary"
-                                            id="submit-{{this.task}}" data-id="{{this.id}}">update</button>
-
+                                            <strong>completed</strong> {{this.completed}}
+                                        </span>
+                                        <input class="completeUpdate" id="{{this.id}}">
+                                        <button class="update btn btn-secondary" id="submit-{{this.task}}" data-id="{{this.id}}">update</button>
                                     </td>
                                 </tr>
-
-
                                 {{/each}}
                             </table>
                         </div>
