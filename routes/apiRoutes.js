@@ -21,20 +21,26 @@ module.exports = function(app) {
       res.json(dbLogin);
     });
   });
+
   app.get("/api/all", function(req, res) {
     db.Users.findAll({}).then(function(results) {
       res.json(results);
     });
   });
-  app.get("/api/user/:login", function(req, res) {
+
+  //login
+  app.post("/api/user/", function(req, res) {
     db.Users.findAll({
       where: {
-        userName: req.params.login
+        UserName: req.body.username,
+        Password: req.body.password,
       }
     }).then(function(results) {
+      console.log(results);
       res.json(results);
     });
   });
+
   // tasks display
   app.get("/api/profile/:user", function(req, res) {
     db.tasks

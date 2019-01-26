@@ -45,15 +45,19 @@ module.exports = function(app) {
   });
 
   //route for users current tasks and update tasks
-  app.get("/user/profile/:login", function(req, res) {
+  app.get("/user/profile/:userId", function(req, res) {
     db.tasks
-      .findAll({ where: { userid: req.params.login } })
+      .findAll({ where: { userid: req.params.userId } })
       .then(function(dbProfile) {
         console.log(dbProfile);
-        res.render("profile", {
-          profile: dbProfile,
-          user: dbProfile[0].userid
-        });
+        if(dbProfile.size > 0) {
+          res.render("profile", {
+            profile: dbProfile,
+            user: dbProfile[0].userid
+          });
+        } else {
+          res.render("profile", {});
+        }
       });
   });
 

@@ -19,16 +19,16 @@ var API = {
 };
 // checks the database for the username
 var loginCheck = function() {
-  userName = $userName.val().trim();
+  let usernameVar = $userName.val().trim();
+  let passwordVar = $userPassword.val().trim();
   console.log(userName);
-  $.get("/api/user/" + userName, function(data) {
-    if (data.length == 0) {
-      alert("user does not exist");
-    } else if ($userPassword.val() == data[0].Password) {
-      alert("logged in");
-      loggedIn(data[0].id);
+  $.post("/api/user/",
+  {username: usernameVar, password: passwordVar},
+  function(result)  {
+    if(result.length > 0) {
+      loggedIn(result[0].id);
     } else {
-      alert("password incorrect");
+      alert('Invalid Login');
     }
   });
 };
