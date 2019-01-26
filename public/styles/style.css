@@ -28,9 +28,6 @@ body {
 .updateTask {
   float: left;
 }
-.completeUpdate {
-  width: 40px;
-}
 
 .update-form {
   display: block;
