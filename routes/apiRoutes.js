@@ -42,11 +42,11 @@ module.exports = function(app) {
   });
 
   // tasks display
-  app.get("/api/profile/:user", function(req, res) {
+  app.get("/api/profile/:userId", function(req, res) {
     db.tasks
       .findAll({
         where: {
-          userName: req.params.user
+          userid: req.params.userId
         }
       })
       .then(function(results) {

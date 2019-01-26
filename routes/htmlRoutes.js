@@ -26,14 +26,14 @@ module.exports = function(app) {
   // loads user login page and grabs their data
   app.get("/user/login/:login", function(req, res) {
     db.tasks
-      .findOne({ where: { userid: req.params.login } })
+      .findOne({where: { userid: req.params.login } })
       .then(function(dbExamples) {
         res.render("example", {
           example: dbExamples
         });
       });
   });
-  
+
   //route for creating new tasks for user
   app.get("/user/tasks/:userid", function(req, res) {
     res.render("task", {
@@ -41,13 +41,21 @@ module.exports = function(app) {
     });
   });
 
-  //route for users current tasks and update tasks
+  // route for users current tasks and update tasks
   app.get("/user/profile/:userId", function(req, res) {
     db.tasks
-      .findAll({ where: { userid: req.params.userId } })
+      .findAll({
+        where: {
+          userid: req.params.userId
+        }
+      })
       .then(function(tasks) {
-        console.log(tasks);
-        if(tasks.size > 0) {
+        console.log(`Tasks size: ${tasks.length}`);
+        if(tasks.length > 0) {
+          tasks.forEach((task) => {
+            console.log(`Task: ${task.task}`);
+            console.log(`Task UserId: ${task.userid}`);
+          });
           res.render("profile", {
             tasks: tasks,
             user: req.params.userId
@@ -59,6 +67,7 @@ module.exports = function(app) {
         }
       });
   });
+
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
